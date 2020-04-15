@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import 'materialize-css/dist/css/materialize.min.css';
 import SearchBar from './components/layout/SearchBar';
@@ -16,17 +18,19 @@ const App = () => {
   });
 
   return (
-    <div className='App'>
-      <SearchBar />
-      <div className='container'>
-        <AddBtn />
-        <AddLogModal />
-        <AddTechModal />
-        <EditLogModal />
-        <TechListModal />
-        <Logs />
+    <Provider store={store}>
+      <div className='App'>
+        <SearchBar />
+        <div className='container'>
+          <AddBtn />
+          <AddLogModal />
+          <AddTechModal />
+          <EditLogModal />
+          <TechListModal />
+          <Logs />
+        </div>
       </div>
-    </div>
+    </Provider>
   );
 };
 
